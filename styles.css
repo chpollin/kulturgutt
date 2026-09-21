@@ -22,8 +22,8 @@
   html { scroll-padding-block-start: 2rem; }
   body { background: var(--surround); color: var(--ink); font: 1.0625rem/1.7 Arial, Helvetica, sans-serif; overflow-wrap: break-word; }
   h1, h2 { font-family: Georgia, 'Times New Roman', serif; font-weight: 400; line-height: 1.12; }
-  h1 { font-size: clamp(2.4rem, 1.5rem + 3.5vw, 4.6rem); letter-spacing: -0.045em; }
-  h2 { font-size: clamp(1.8rem, 1.45rem + 1vw, 2.5rem); letter-spacing: -0.025em; margin-block-end: 1.25rem; }
+  h1 { font-size: clamp(2.4rem, 1.5rem + 3.5vw, 4.6rem); letter-spacing: -0.025em; }
+  h2 { font-size: clamp(1.8rem, 1.45rem + 1vw, 2.5rem); letter-spacing: -0.01em; margin-block-end: 1.25rem; }
   p { max-inline-size: 62ch; }
   p + p { margin-block-start: 1.2rem; }
   a { color: var(--blue); text-underline-offset: 0.25em; }
