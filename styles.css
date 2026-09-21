@@ -1,0 +1,77 @@
+/* SPDX-License-Identifier: MIT */
+@layer reset, tokens, base, layout, components;
+
+@layer reset {
+  *, *::before, *::after { box-sizing: border-box; }
+  body, h1, h2, h3, p { margin: 0; }
+  img { display: block; max-inline-size: 100%; block-size: auto; }
+}
+
+@layer tokens {
+  :root {
+    color-scheme: light;
+    --paper: oklch(1 0 0);
+    --ink: oklch(0.2 0 0);
+    --muted: oklch(0.43 0 0);
+    --soft: oklch(0.95 0 0);
+    --placeholder: oklch(0.9 0 0);
+    --line: oklch(0.79 0 0);
+    --gutter: clamp(1.25rem, 0.5rem + 3vw, 4rem);
+    --section-space: clamp(3.5rem, 2rem + 4vw, 7rem);
+  }
+}
+
+@layer base {
+  html { scroll-padding-block-start: 1.5rem; }
+  body { background: var(--paper); color: var(--ink); font-family: Arial, Helvetica, sans-serif; font-size: 1.0625rem; line-height: 1.6; overflow-wrap: break-word; }
+  a { color: inherit; text-underline-offset: 0.25em; }
+  a:hover { text-decoration-thickness: 0.14em; }
+  :focus-visible { outline: 3px solid var(--ink); outline-offset: 5px; }
+  h1, h2, h3 { line-height: 1.08; letter-spacing: -0.045em; }
+  h1 { font-size: clamp(3rem, 1.8rem + 4.3vw, 6rem); }
+  h2 { font-size: clamp(2rem, 1.35rem + 2.1vw, 3.6rem); }
+  h3 { font-size: clamp(1.5rem, 1.2rem + 0.7vw, 2rem); margin-block: 1.5rem 0.8rem; }
+  p { max-inline-size: 58ch; }
+  p + p { margin-block-start: 1rem; }
+}
+
+@layer layout {
+  .wrap { inline-size: min(100% - var(--gutter) * 2, 75rem); margin-inline: auto; }
+  .site-header, nav, .section-heading, .site-footer { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem 2rem; }
+  .site-header { padding-block: 1.25rem; border-block-end: 1px solid var(--line); }
+  nav { gap: 0.25rem 1.5rem; }
+  .hero { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem 3rem; padding-block: clamp(2rem, 1rem + 3vw, 4.5rem); }
+  .hero-copy { flex: 1 1 30rem; }
+  .hero-logo { flex: 0 1 23rem; inline-size: min(100%, 23rem); margin-inline: auto; }
+  .section { padding-block: var(--section-space); border-block-start: 1px solid var(--line); }
+  .section-heading { align-items: baseline; margin-block-end: 2.5rem; }
+  .program-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 23rem), 1fr)); gap: 3rem; }
+  .split { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 25rem), 1fr)); gap: 2.5rem 5rem; }
+  .room-section { background: var(--soft); padding-block: var(--section-space); }
+  .site-footer { border-block-start: 1px solid var(--line); padding-block: 2rem; }
+}
+
+@layer components {
+  .draft-note { background: var(--soft); text-align: center; padding: 0.5rem var(--gutter); font-size: 0.8125rem; color: var(--muted); }
+  .wordmark { font-weight: 800; font-size: 1.75rem; letter-spacing: -0.07em; text-decoration: none; }
+  nav a { padding-block: 0.75rem; text-decoration: none; }
+  nav a:hover { text-decoration: underline; }
+  .skip-link { position: absolute; inset-block-start: -8rem; inset-inline-start: 1rem; z-index: 1; background: var(--paper); padding: 1rem; }
+  .skip-link:focus { inset-block-start: 1rem; }
+  .lead { font-size: clamp(1.2rem, 1rem + 0.5vw, 1.5rem); line-height: 1.5; }
+  .hero .lead { margin-block: 1.8rem 2rem; max-inline-size: 37ch; }
+  .button { display: inline-flex; align-items: center; gap: 2rem; background: var(--ink); color: var(--paper); padding: 0.9rem 1.4rem; border-radius: 0.4rem; text-decoration: none; }
+  .button:hover { background: var(--muted); }
+  .places { font-size: 0.9375rem; color: var(--muted); margin-block-start: 2.25rem; }
+  .image-placeholder, .room-placeholder { display: grid; place-items: center; background: var(--placeholder); color: var(--muted); aspect-ratio: 16 / 10; border-radius: 0.75rem; }
+  .image-placeholder span, .room-placeholder span { border: 1px solid var(--line); padding: 0.35rem 0.9rem; font-size: 0.875rem; }
+  .exhibition { background: var(--soft); }
+  .program-note { color: var(--muted); margin-block-start: 2.5rem; }
+  .split .lead { margin-block-end: 1.3rem; }
+  .room-section p { margin-block: 1.5rem; }
+  .room-placeholder { align-self: stretch; inline-size: 100%; min-inline-size: 0; min-block-size: 15rem; aspect-ratio: auto; }
+  .text-link { display: inline-block; padding-block: 0.75rem; }
+  .contact-placeholder { border-inline-start: 2px solid var(--line); padding-inline-start: 1rem; color: var(--muted); }
+  .site-footer p { margin: 0; }
+  .footer-note { flex-basis: 100%; font-size: 0.8125rem; color: var(--muted); }
+}
